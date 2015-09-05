@@ -6,61 +6,40 @@ abstract class Fighter
 
   abstract def damage_rate
   abstract def attack_message
-  abstract def fighting_styles
 
   setter health
   getter health, name
 
-  getter name
-
-  def initialize(@position, @name)
-    @damage = damage_rate
+  def initialize(@name)
+    @damage_rate = damage_rate
     @attack_message = attack_message
     @health = 100
   end
 
-  def move_to(pos)
-    side = @position < pos ? :right : :left
-    while (@position != pos)
-      move(side)
-    end
-  end
-
   def attack(fighter)
-    puts String.build do |s|
-      s << "#{@name} damages #{fighter.name}"
-      s << " with #{@damage}"
-      s << " saying '#{@attack_message}'"
-    end
+    puts "#{@name} attacks #{fighter.name} saying '#{@attack_message}'"
 
-    if (fighter.health - @damage <= 0)
-      puts "#{name} win. Finish him!"
-    else
-      fighter.health -= @damage
-    end
+    fighter.damage(@damage_rate)
+
+    puts "#{fighter.name} is dead." if fighter.is_dead?
   end
 
-  private def move(side)
-    case side
-    when :left
-      puts "#{name} moving 1 step left"
-      @position -= 1
-    when :right
-      puts "#{name} moving 1 step right"
-      @position += 1
+  def is_dead?
+    @health <= 0
+  end
+
+  def damage(rate)
+    if @health - rate > 0
+      @health -= rate
     else
-      raise "Unknown side to move to: #{side}"
+      @health = 0
     end
   end
 end
 
 class Scorpion < Fighter
-  def initialize(position)
-    super(position, "Scorpion")
-  end
-
-  def fighting_styles
-    ["Hapkido", "Moi Fah", "Pi Gua"]
+  def initialize()
+    super("Scorpion")
   end
 
   def damage_rate
@@ -73,12 +52,8 @@ class Scorpion < Fighter
 end
 
 class Noob < Fighter
-  def initialize(position)
-    super(position, "Noob")
-  end
-
-  def fighting_styles
-    ["Monkey"]
+  def initialize()
+    super("Noob")
   end
 
   def damage_rate
@@ -90,12 +65,16 @@ class Noob < Fighter
   end
 end
 
-scor = Scorpion.new 2
-noob = Noob.new 6
+# Usage example
+scor = Scorpion.new
+noob = Noob.new
 
-noob.move_to 4
-scor.move_to 4
+noob.attack scor
+# Noob attacks Scorpion saying 'Fear me!'
 
-noob.attack(scor)
-scor.attack(noob)
-noob.attack(scor)
+scor.attack noob
+# Scorpion attacks Noob saying 'Vengeance will be mine.'
+
+noob.attack scor
+# Noob attacks Scorpion saying 'Fear me!'
+# Scorpion is dead.
