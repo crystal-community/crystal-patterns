@@ -7,6 +7,7 @@ The goal is to have a quick set of examples of [GOF patterns](http://www.blackwa
 ## List of available patterns:
 
  * Creational
- * Behavioral
-   - [Template Method](template.cr)
  * Structural
+ * Behavioral
+   - [Strategy](strategy.cr)
+   - [Template Method](template.cr)
