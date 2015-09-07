@@ -9,5 +9,6 @@ The goal is to have a quick set of examples of [GOF patterns](http://www.blackwa
  * Creational
  * Structural
  * Behavioral
+   - [Observer](observer.cr)
    - [Strategy](strategy.cr)
    - [Template Method](template.cr)

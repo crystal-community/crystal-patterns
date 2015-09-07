@@ -22,7 +22,7 @@ class Fighter
   end
 
   def damage(rate)
-    if @health - rate > 0
+    if @health > rate
       @health -= rate
     else
       @health = 0
