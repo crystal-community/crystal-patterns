@@ -2,13 +2,12 @@
 # changes, all dependent objects are update automatically. Allows
 # communication between objects in a loosely coupled manner.
 
-module Observable
-
+module Observable(T)
   getter observers
 
   def add_observer(observer)
-    @observers = [] of Observer unless @observers
-    @observers.try &.<< observer
+    @observers = [] of T unless @observers
+    @observers.not_nil! << observer
   end
 
   def delete_observer(observer)
@@ -21,8 +20,7 @@ module Observable
 end
 
 class Fighter
-
-  include Observable
+  include Observable(Observer)
 
   getter name, health
 
@@ -60,7 +58,7 @@ class DieAction < Observer
   end
 end
 
-# Usage example
+# Sample
 fighter = Fighter.new("Scorpion")
 
 fighter.add_observer(Stats.new)

@@ -3,7 +3,6 @@
 # defined by a number of subclasses.
 
 abstract class Fighter
-
   abstract def damage_rate
   abstract def attack_message
 
@@ -17,10 +16,8 @@ abstract class Fighter
   end
 
   def attack(fighter)
-    puts "#{@name} attacks #{fighter.name} saying '#{@attack_message}'"
-
     fighter.damage(@damage_rate)
-
+    puts "#{@name} attacks #{fighter.name} saying '#{@attack_message}'"
     puts "#{fighter.name} is dead." if fighter.is_dead?
   end
 
@@ -65,7 +62,7 @@ class Noob < Fighter
   end
 end
 
-# Usage example
+# Sample
 scor = Scorpion.new
 noob = Noob.new
 

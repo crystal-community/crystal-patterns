@@ -3,7 +3,6 @@
 # purpose may then be selected at run-time.
 
 class Fighter
-
   getter health, name
   setter health
 
@@ -13,7 +12,6 @@ class Fighter
 
   def attack(opponent)
     @fight_strategy.attack self, opponent
-
     puts "#{opponent.name} is dead" if opponent.is_dead?
   end
 
@@ -53,7 +51,7 @@ class Combo < FightStrategy
   end
 end
 
-# Usage example
+# Sample
 scor = Fighter.new("Scorpion", Puncher.new)
 noob = Fighter.new("Noob", Combo.new)
 
@@ -66,4 +64,3 @@ scor.attack noob
 noob.attack scor
 # Noob attacks Scorpion with 2 kicks and 1 punch.
 # Scorpion is dead
-
