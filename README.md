@@ -32,7 +32,9 @@ module Observable(T)
     @observers.try &.each &.update self
   end
 end
+```
 
+```crystal
 class Fighter
   include Observable(Observer)
 
@@ -55,23 +57,31 @@ class Fighter
     @health <= 0
   end
 end
+```
 
+```crystal
 abstract class Observer
   abstract def update fighter
 end
+```
 
+```crystal
 class Stats < Observer
   def update(fighter)
     puts "Updating stats: #{fighter.name}'s health is #{fighter.health}"
   end
 end
+```
 
+```crystal
 class DieAction < Observer
   def update(fighter)
     puts "#{fighter.name} is dead. Finish him!" if fighter.is_dead?
   end
 end
+```
 
+```crystal
 # Sample
 fighter = Fighter.new("Scorpion")
 
@@ -88,6 +98,7 @@ fighter.damage(75)
 # Updating stats: Scorpion's health is 0
 # Scorpion is dead. Finish him!
 ```
+
 ## Strategy
 
 Allows a set of similar algorithms to be defined and encaplusated in their own classes. The algorithm to be used for a particular purpose may then be selected at run-time.
@@ -118,20 +129,26 @@ class Fighter
     end
   end
 end
+```
 
+```crystal
 abstract class FightStrategy
   HITS = {:punch => 40, :kick => 12}
 
   abstract def attack(fighter, opponent)
 end
+```
 
+```crystal
 class Puncher < FightStrategy
   def attack(ft, op)
     puts "#{ft.name} attacks #{op.name} with 1 punch."
     op.damage(HITS[:punch])
   end
 end
+```
 
+```crystal
 class Combo < FightStrategy
   def attack(ft, op)
     puts "#{ft.name} attacks #{op.name} with 2 kicks and 1 punch."
@@ -141,7 +158,9 @@ class Combo < FightStrategy
     op.damage(HITS[:punch])
   end
 end
+```
 
+```crystal
 # Sample
 scor = Fighter.new("Scorpion", Puncher.new)
 noob = Fighter.new("Noob", Combo.new)
@@ -193,7 +212,9 @@ abstract class Fighter
     end
   end
 end
+```
 
+```crystal
 class Scorpion < Fighter
   def initialize()
     super("Scorpion")
@@ -207,7 +228,9 @@ class Scorpion < Fighter
     "Vengeance will be mine."
   end
 end
+```
 
+```crystal
 class Noob < Fighter
   def initialize()
     super("Noob")
@@ -221,7 +244,9 @@ class Noob < Fighter
     "Fear me!"
   end
 end
+```
 
+```crystal
 # Sample
 scor = Scorpion.new
 noob = Noob.new
