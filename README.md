@@ -8,6 +8,7 @@ The goal is to have a quick set of examples of [GOF patterns](http://www.blackwa
 * Structural
   - [Composite](#composite)
 * Behavioral
+  - [Iterator](#iterator)
   - [Observer](#observer)
   - [Strategy](#strategy)
   - [Template Method](#template-method)
@@ -332,4 +333,49 @@ super_strike.attack
 
 super_strike.damage
 # => 21
+```
+
+## Iterator
+
+The iterator pattern is a design pattern that provides a means for the elements of an aggregate object to be accessed sequentially without knowledge of its structure. This allows traversing of lists, trees and other structures in a standard manner.
+
+```crystal
+class Fighter
+  getter name, weight
+
+  def initialize(@name, @weight)
+  end
+end
+```
+
+```crystal
+class Tournament
+  include Enumerable(Fighter)
+
+  def initialize
+    @fighters = [] of Fighter
+  end
+
+  def << (fighter)
+    @fighters << fighter
+  end
+
+  def each
+    @fighters.each { |fighter| yield fighter }
+  end
+end
+```
+
+```crystal
+# Sample
+tournament = Tournament.new
+  .tap(&.<< Fighter.new "Jax", 150)
+  .tap(&.<< Fighter.new "Liu Kang", 84)
+  .tap(&.<< Fighter.new "Liu Kang", 95)
+  .tap(&.<< Fighter.new "Sub-Zero", 95)
+  .tap(&.<< Fighter.new "Smoke", 252)
+
+tournament.select { |fighter| fighter.weight > 100 }
+  .map {|fighter| fighter.name}
+# => ["Jax", "Smoke"]
 ```
