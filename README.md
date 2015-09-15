@@ -4,14 +4,136 @@ Design patterns completely implemented in Crystal language.
 
 The goal is to have a quick set of examples of [GOF patterns](http://www.blackwasp.co.uk/gofpatterns.aspx) for Crystal users.
 
-* Creational
-* Structural
+* [Creational](#creational)
+* [Structural](#structural)
   - [Composite](#composite)
-* Behavioral
+* [Behavioral](#behavioral)
   - [Iterator](#iterator)
   - [Observer](#observer)
   - [Strategy](#strategy)
   - [Template Method](#template-method)
+
+# Creational
+
+# Structural
+
+## Composite
+
+The composite pattern is a design pattern that is used when creating hierarchical object models. The pattern defines a manner in which to design recursive tree structures of objects, where individual objects and groups can be accessed in the same manner
+
+```crystal
+abstract class Strike
+  abstract def damage
+  abstract def attack
+end
+```
+
+```crystal
+class Punch < Strike
+  def attack
+    puts "Hitting with punch"
+  end
+
+  def damage
+    5
+  end
+end
+```
+
+```crystal
+class Kick < Strike
+  def attack
+    puts "Hitting with kick"
+  end
+
+  def damage
+    8
+  end
+end
+```
+
+```crystal
+class Combo < Strike
+  def initialize
+    @sub_strikes = [] of Strike
+  end
+
+  def << (strike)
+    @sub_strikes << strike
+  end
+
+  def damage
+    @sub_strikes.inject(0) { |acc, x| acc + x.damage }
+  end
+
+  def attack
+    @sub_strikes.each &.attack
+  end
+end
+```
+
+``` crystal
+# Sample
+super_strike = Combo.new
+  .tap(&.<< Kick.new)
+  .tap(&.<< Kick.new)
+  .tap(&.<< Punch.new)
+
+super_strike.attack
+# Hitting with kick
+# Hitting with kick
+# Hitting with punch
+
+super_strike.damage
+# => 21
+```
+
+# Behavioral
+
+## Iterator
+
+The iterator pattern is a design pattern that provides a means for the elements of an aggregate object to be accessed sequentially without knowledge of its structure. This allows traversing of lists, trees and other structures in a standard manner.
+
+```crystal
+class Fighter
+  getter name, weight
+
+  def initialize(@name, @weight)
+  end
+end
+```
+
+```crystal
+class Tournament
+  include Enumerable(Fighter)
+
+  def initialize
+    @fighters = [] of Fighter
+  end
+
+  def << (fighter)
+    @fighters << fighter
+  end
+
+  def each
+    @fighters.each { |fighter| yield fighter }
+  end
+end
+```
+
+```crystal
+# Sample
+tournament = Tournament.new
+  .tap(&.<< Fighter.new "Jax", 150)
+  .tap(&.<< Fighter.new "Liu Kang", 84)
+  .tap(&.<< Fighter.new "Liu Kang", 95)
+  .tap(&.<< Fighter.new "Sub-Zero", 95)
+  .tap(&.<< Fighter.new "Smoke", 252)
+
+tournament.select { |fighter| fighter.weight > 100 }
+  .map {|fighter| fighter.name}
+# => ["Jax", "Smoke"]
+```
 
 ## Observer
 
@@ -262,120 +384,4 @@ scor.attack noob
 noob.attack scor
 # Noob attacks Scorpion saying 'Fear me!'
 # Scorpion is dead.
-```
-
-## Composite
-
-The composite pattern is a design pattern that is used when creating hierarchical object models. The pattern defines a manner in which to design recursive tree structures of objects, where individual objects and groups can be accessed in the same manner
-
-```crystal
-abstract class Strike
-  abstract def damage
-  abstract def attack
-end
-```
-
-```crystal
-class Punch < Strike
-  def attack
-    puts "Hitting with punch"
-  end
-
-  def damage
-    5
-  end
-end
-```
-
-```crystal
-class Kick < Strike
-  def attack
-    puts "Hitting with kick"
-  end
-
-  def damage
-    8
-  end
-end
-```
-
-```crystal
-class Combo < Strike
-  def initialize
-    @sub_strikes = [] of Strike
-  end
-
-  def << (strike)
-    @sub_strikes << strike
-  end
-
-  def damage
-    @sub_strikes.inject(0) { |acc, x| acc + x.damage }
-  end
-
-  def attack
-    @sub_strikes.each &.attack
-  end
-end
-```
-
-``` crystal
-# Sample
-super_strike = Combo.new
-  .tap(&.<< Kick.new)
-  .tap(&.<< Kick.new)
-  .tap(&.<< Punch.new)
-
-super_strike.attack
-# Hitting with kick
-# Hitting with kick
-# Hitting with punch
-
-super_strike.damage
-# => 21
-```
-
-## Iterator
-
-The iterator pattern is a design pattern that provides a means for the elements of an aggregate object to be accessed sequentially without knowledge of its structure. This allows traversing of lists, trees and other structures in a standard manner.
-
-```crystal
-class Fighter
-  getter name, weight
-
-  def initialize(@name, @weight)
-  end
-end
-```
-
-```crystal
-class Tournament
-  include Enumerable(Fighter)
-
-  def initialize
-    @fighters = [] of Fighter
-  end
-
-  def << (fighter)
-    @fighters << fighter
-  end
-
-  def each
-    @fighters.each { |fighter| yield fighter }
-  end
-end
-```
-
-```crystal
-# Sample
-tournament = Tournament.new
-  .tap(&.<< Fighter.new "Jax", 150)
-  .tap(&.<< Fighter.new "Liu Kang", 84)
-  .tap(&.<< Fighter.new "Liu Kang", 95)
-  .tap(&.<< Fighter.new "Sub-Zero", 95)
-  .tap(&.<< Fighter.new "Smoke", 252)
-
-tournament.select { |fighter| fighter.weight > 100 }
-  .map {|fighter| fighter.name}
-# => ["Jax", "Smoke"]
 ```
