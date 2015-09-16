@@ -15,7 +15,11 @@ The goal is to have a quick set of examples of [GOF patterns](http://www.blackwa
 
 # Creational
 
+Creational patterns provide ways to instantiate single objects or groups of related objects
+
 # Structural
+
+Structural patterns provide a manner to define relationships between classes or objects.
 
 ## Composite
 
@@ -89,6 +93,8 @@ super_strike.damage
 ```
 
 # Behavioral
+
+Behavioural patterns define manners of communication between classes and objects.
 
 ## Iterator
 
