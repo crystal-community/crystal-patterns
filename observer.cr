@@ -6,7 +6,7 @@ module Observable(T)
   getter observers
 
   def add_observer(observer)
-    @observers = [] of T unless @observers
+    @observers ||= [] of T
     @observers.not_nil! << observer
   end
 
