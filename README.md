@@ -8,6 +8,7 @@ The goal is to have a quick set of examples of [GOF patterns](http://www.blackwa
 * [Structural](#structural)
   - [Composite](#composite)
 * [Behavioral](#behavioral)
+  - [Command](#command)
   - [Iterator](#iterator)
   - [Observer](#observer)
   - [Strategy](#strategy)
@@ -96,6 +97,120 @@ super_strike.damage
 
 Behavioural patterns define manners of communication between classes and objects.
 
+## Command
+
+The command pattern is a design pattern that enables all of the information for a request to be contained within a single object. The command can then be invoked as required, often as part of a batch of queued commands with rollback capabilities.
+
+```crystal
+abstract class Command
+  abstract def execute
+  abstract def undo
+end
+```
+
+```crystal
+class MoveLeft < Command
+  def execute
+    puts "One step left"
+  end
+
+  def undo
+    puts "Undo step left"
+  end
+end
+```
+
+```crystal
+class MoveRight < Command
+  def execute
+    puts "One step right"
+  end
+
+  def undo
+    puts "Undo step right"
+  end
+end
+```
+
+```crystal
+class Hit < Command
+  def execute
+    puts "Do one hit"
+  end
+
+  def undo
+    puts "Undo one hit"
+  end
+end
+```
+
+```crystal
+class CommandSequence < Command
+  def initialize
+    @commands = [] of Command
+  end
+
+  def <<(command)
+    @commands << command
+  end
+
+  def execute
+    @commands.each &.execute
+  end
+
+  def undo
+    @commands.reverse.each &.undo
+  end
+end
+```
+
+```crystal
+class CommandSequence < Command
+  def initialize
+    @commands = [] of Command
+  end
+
+  def <<(command)
+    @commands << command
+  end
+
+  def execute
+    @commands.each &.execute
+  end
+
+  def undo
+    @commands.reverse.each &.undo
+  end
+end
+```
+
+```crystal
+# Sample
+sequence = CommandSequence.new.tap do |r|
+  r << MoveLeft.new
+  r << MoveLeft.new
+  r << MoveLeft.new
+  r << Hit.new
+  r << MoveRight.new
+end
+
+player = CommandSequencePlayer.new sequence
+
+player.forward
+# One step left
+# One step left
+# One step left
+# Do one hit
+# One step right
+
+player.backward
+# Undo step right
+# Undo one hit
+# Undo step left
+# Undo step left
+# Undo step left
+```
+
 ## Iterator
 
 The iterator pattern is a design pattern that provides a means for the elements of an aggregate object to be accessed sequentially without knowledge of its structure. This allows traversing of lists, trees and other structures in a standard manner.
@@ -129,12 +244,13 @@ end
 
 ```crystal
 # Sample
-tournament = Tournament.new
-  .tap(&.<< Fighter.new "Jax", 150)
-  .tap(&.<< Fighter.new "Liu Kang", 84)
-  .tap(&.<< Fighter.new "Liu Kang", 95)
-  .tap(&.<< Fighter.new "Sub-Zero", 95)
-  .tap(&.<< Fighter.new "Smoke", 252)
+tournament = Tournament.new.tap do |t|
+  t << Fighter.new "Jax", 150
+  t << Fighter.new "Liu Kang", 84
+  t << Fighter.new "Scorpion", 95
+  t << Fighter.new "Sub-Zero", 95
+  t << Fighter.new "Smoke", 252
+end
 
 tournament.select { |fighter| fighter.weight > 100 }
   .map {|fighter| fighter.name}

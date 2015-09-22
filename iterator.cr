@@ -27,12 +27,13 @@ class Tournament
 end
 
 # Sample
-tournament = Tournament.new
-  .tap(&.<< Fighter.new "Jax", 150)
-  .tap(&.<< Fighter.new "Liu Kang", 84)
-  .tap(&.<< Fighter.new "Liu Kang", 95)
-  .tap(&.<< Fighter.new "Sub-Zero", 95)
-  .tap(&.<< Fighter.new "Smoke", 252)
+tournament = Tournament.new.tap do |t|
+  t << Fighter.new "Jax", 150
+  t << Fighter.new "Liu Kang", 84
+  t << Fighter.new "Scorpion", 95
+  t << Fighter.new "Sub-Zero", 95
+  t << Fighter.new "Smoke", 252
+end
 
 tournament.select { |fighter| fighter.weight > 100 }
   .map {|fighter| fighter.name}
