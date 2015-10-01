@@ -1,4 +1,4 @@
-# Crystal patterns
+# Crystal patterns [![Build Status](https://travis-ci.org/veelenga/crystal-patterns.svg?branch=master)](https://travis-ci.org/veelenga/crystal-patterns)
 
 Design patterns completely implemented in Crystal language.
 
