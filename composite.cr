@@ -47,10 +47,11 @@ class Combo < Strike
 end
 
 # Sample
-super_strike = Combo.new
-  .tap(&.<< Kick.new)
-  .tap(&.<< Kick.new)
-  .tap(&.<< Punch.new)
+super_strike = Combo.new.tap do |s|
+  s << Kick.new
+  s << Kick.new
+  s << Punch.new
+end
 
 super_strike.attack
 # Hitting with kick
