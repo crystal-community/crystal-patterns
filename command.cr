@@ -57,7 +57,7 @@ class CommandSequence < Command
 end
 
 class CommandSequencePlayer
-  def initialize(@sequence: CommandSequence)
+  def initialize(@sequence : CommandSequence)
   end
 
   def forward

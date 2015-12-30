@@ -43,7 +43,7 @@ class Fighter
 end
 
 abstract class Observer
-  abstract def update fighter
+  abstract def update(fighter)
 end
 
 class Stats < Observer
@@ -54,7 +54,7 @@ end
 
 class DieAction < Observer
   def update(fighter)
-    puts "#{fighter.name} is dead. Finish him!" if fighter.is_dead?
+    puts "#{fighter.name} is dead. Fight is over!" if fighter.is_dead?
   end
 end
 
@@ -72,5 +72,4 @@ fighter.damage(30)
 
 fighter.damage(75)
 # Updating stats: Scorpion's health is 0
-# Scorpion is dead. Finish him!
-
+# Scorpion is dead. Fight is over!
