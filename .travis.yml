@@ -1,10 +1,2 @@
 language: crystal
-script:
-  # Modules can define alike classes, thus
-  # we can't built it with `crystal build *.cr`.
-  - crystal build --no-codegen command.cr
-  - crystal build --no-codegen composite.cr
-  - crystal build --no-codegen iterator.cr
-  - crystal build --no-codegen observer.cr
-  - crystal build --no-codegen strategy.cr
-  - crystal build --no-codegen template.cr
+script: ./rebuild.sh
