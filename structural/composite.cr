@@ -33,12 +33,12 @@ class Combo < Strike
     @sub_strikes = [] of Strike
   end
 
-  def << (strike)
+  def <<(strike)
     @sub_strikes << strike
   end
 
   def damage
-    @sub_strikes.inject(0) { |acc, x| acc + x.damage }
+    @sub_strikes.reduce(0) { |acc, x| acc + x.damage }
   end
 
   def attack
@@ -60,4 +60,3 @@ super_strike.attack
 
 super_strike.damage
 # => 21
-

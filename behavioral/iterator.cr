@@ -17,7 +17,7 @@ class Tournament
     @fighters = [] of Fighter
   end
 
-  def << (fighter)
+  def <<(fighter)
     @fighters << fighter
   end
 
@@ -36,5 +36,5 @@ tournament = Tournament.new.tap do |t|
 end
 
 tournament.select { |fighter| fighter.weight > 100 }
-  .map {|fighter| fighter.name}
+          .map { |fighter| fighter.name }
 # => ["Jax", "Smoke"]

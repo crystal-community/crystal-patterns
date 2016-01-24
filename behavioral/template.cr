@@ -35,7 +35,7 @@ abstract class Fighter
 end
 
 class Scorpion < Fighter
-  def initialize()
+  def initialize
     super("Scorpion")
   end
 
@@ -49,7 +49,7 @@ class Scorpion < Fighter
 end
 
 class Noob < Fighter
-  def initialize()
+  def initialize
     super("Noob")
   end
 
