@@ -6,7 +6,7 @@
 class Fighter
   getter name, weight
 
-  def initialize(@name, @weight)
+  def initialize(@name : String, @weight : Int32)
   end
 end
 
@@ -35,6 +35,6 @@ tournament = Tournament.new.tap do |t|
   t << Fighter.new "Smoke", 252
 end
 
-tournament.select { |fighter| fighter.weight > 100 }
-          .map { |fighter| fighter.name }
-# => ["Jax", "Smoke"]
+p tournament.select { |fighter| fighter.weight > 100 }
+            .map { |fighter| fighter.name }
+# ["Jax", "Smoke"]

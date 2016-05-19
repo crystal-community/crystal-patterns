@@ -6,7 +6,7 @@ class Fighter
   getter health, name
   setter health
 
-  def initialize(@name, @fight_strategy)
+  def initialize(@name : String, @fight_strategy : FightStrategy)
     @health = 100
   end
 

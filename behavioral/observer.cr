@@ -5,7 +5,7 @@
 module Observable(T)
   getter observers
 
-  def add_observer(observer)
+  def add_observer(observer : Observer)
     @observers ||= [] of T
     @observers.not_nil! << observer
   end
@@ -24,11 +24,11 @@ class Fighter
 
   getter name, health
 
-  def initialize(@name)
+  def initialize(@name : String)
     @health = 100
   end
 
-  def damage(rate)
+  def damage(rate : Int32)
     if @health > rate
       @health -= rate
     else

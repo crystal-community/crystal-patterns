@@ -9,9 +9,9 @@ abstract class Fighter
   setter health
   getter health, name
 
-  def initialize(@name)
-    @damage_rate = damage_rate
-    @attack_message = attack_message
+  def initialize(@name : String)
+    @damage_rate = damage_rate.as(Int32)
+    @attack_message = attack_message.as(String)
     @health = 100
   end
 
