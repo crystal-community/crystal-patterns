@@ -2,6 +2,10 @@
 # changes, all dependent objects are update automatically. Allows
 # communication between objects in a loosely coupled manner.
 
+abstract class Observer
+  abstract def update(fighter)
+end
+
 module Observable(T)
   getter observers
 
@@ -40,10 +44,6 @@ class Fighter
   def is_dead?
     @health <= 0
   end
-end
-
-abstract class Observer
-  abstract def update(fighter)
 end
 
 class Stats < Observer
