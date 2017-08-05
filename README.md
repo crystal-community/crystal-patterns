@@ -15,6 +15,7 @@ The goal is to have a quick set of examples of [GOF patterns](http://www.blackwa
 - Creational
   - [Abstract Factory](creational/abstract_factory.cr)
   - [Builder](creational/builder.cr)
+  - [Singleton](creational/singleton.cr)
 - Structural
   - [Composite](structural/composite.cr)
 
