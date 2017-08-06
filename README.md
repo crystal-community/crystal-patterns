@@ -23,6 +23,7 @@ The goal is to have a quick set of examples of [GOF patterns](http://www.blackwa
   - [Singleton](creational/singleton.cr)
 - Structural
   - [Adapter](structural/adapter.cr)
+  - [Bridge](structural/bridge.cr)
   - [Composite](structural/composite.cr)
 
 ## Contribution
