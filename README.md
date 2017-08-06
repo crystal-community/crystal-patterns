@@ -25,6 +25,7 @@ The goal is to have a quick set of examples of [GOF patterns](http://www.blackwa
   - [Adapter](structural/adapter.cr)
   - [Bridge](structural/bridge.cr)
   - [Composite](structural/composite.cr)
+  - [Decorator](structural/decorator.cr)
 
 ## Contribution
 
