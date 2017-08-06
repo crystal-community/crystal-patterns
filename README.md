@@ -1,11 +1,11 @@
 <img src='https://media.githubusercontent.com/media/veelenga/bin/master/crystal-patterns/logo.png' width='100' align='right'>
 
-# Crystal patterns
+# Crystal Patterns
 [![Build Status](https://travis-ci.org/veelenga/crystal-patterns.svg?branch=master)](https://travis-ci.org/veelenga/crystal-patterns)
 
-Design patterns implemented in Crystal language.
+Design patterns implemented in Crystal language (with [MK](http://mortalkombat.wikia.com) in mind).
 
-The goal is to have a quick set of examples of [GOF patterns](http://www.blackwasp.co.uk/gofpatterns.aspx) for Crystal users.
+The goal is to have a set of [GOF patterns](http://www.blackwasp.co.uk/gofpatterns.aspx) for Crystal users.
 
 ## Available implementations
 
@@ -29,4 +29,4 @@ The goal is to have a quick set of examples of [GOF patterns](http://www.blackwa
 
 ## Contribution
 
-If you found any inconsistency, want to impove existed implementation or add a new one, pull requests are welcome.
+If you found any inconsistency or a place for improvement, pull requests are welcomed.
