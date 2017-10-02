@@ -27,6 +27,7 @@ The goal is to have a set of [GOF patterns](http://www.blackwasp.co.uk/gofpatter
   - [Composite](structural/composite.cr)
   - [Decorator](structural/decorator.cr)
   - [Facade](structural/facade.cr)
+  - [Flyweight](structural/flyweight.cr)
 
 ## Contribution
 

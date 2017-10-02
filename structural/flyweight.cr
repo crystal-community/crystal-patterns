@@ -37,11 +37,9 @@ class Forest
 
   def get_tree(species : String)
     if @trees.has_key?(species)
-      return @trees[species]
+      @trees[species]
     else
-      tree = Tree.new(species)
-      @trees[species] = tree
-      return tree
+      Tree.new(species).tap { |tree| @trees[species] = tree }
     end
   end
 
@@ -66,3 +64,18 @@ forest.get_tree("acacia").draw_at({33, 49})
 forest.get_tree("magnolia").draw_at({0, 0})
 puts "-----------------------"
 puts "Total instances created: #{forest.tot_instances}"
+
+# Drawing birch at {5, 6}
+# Drawing acacia at {3, 1}
+# Drawing magnolia at {15, 86}
+# Drawing birch at {8, 15}
+# Drawing acacia at {18, 4}
+# Drawing baobab at {1, 41}
+# Drawing magnolia at {80, 50}
+# Drawing acacia at {22, 3}
+# Drawing birch at {1, 42}
+# Drawing baobab at {15, 7}
+# Drawing acacia at {33, 49}
+# Drawing magnolia at {0, 0}
+# -----------------------
+# Total instances created: 4
