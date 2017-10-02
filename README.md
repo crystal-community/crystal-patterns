@@ -30,6 +30,9 @@ The goal is to have a set of [GOF patterns](http://www.blackwasp.co.uk/gofpatter
   - [Flyweight](structural/flyweight.cr)
   - [Proxy](structural/proxy.cr)
 
-## Contribution
-
 If you found any inconsistency or a place for improvement, pull requests are welcomed.
+
+## Contributors
+
+* [veelenga](https://github.com/veelenga) V. Elenhaupt - creator, maintainer
+* [silverweed](https://github.com/silverweed) Silverweed - contributor
