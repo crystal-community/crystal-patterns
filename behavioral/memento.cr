@@ -44,9 +44,12 @@ class Match
 end
 
 match = Match.new("Liu Kang", "Kano", 3, 60.seconds)
+# Save the current state
 previousMatchState = match.saveMemento
+# Change the state
 match.rounds = 5
 match.fighters = {"Sonya Blade", "Goro"}
 match.start
+# Restore the previous state
 match.restoreMemento(previousMatchState)
 match.start
