@@ -38,9 +38,7 @@ class FighterGeneratorProxy
   def generate(fighter_name : String)
     puts "Requested fighter #{fighter_name}"
     return @cache[fighter_name] if @cache.has_key?(fighter_name)
-    fighter = @generator.generate(fighter_name)
-    @cache[fighter_name] = fighter
-    return fighter
+    @generator.generate(fighter_name).tap { |fighter| @cache[fighter_name] = fighter }
   end
 end
 
@@ -55,3 +53,20 @@ generator.generate("Scorpion")
 generator.generate("Raiden")
 generator.generate("Johnny Cage")
 generator.generate("Kitana")
+
+# Initializing FighterGenerator with AI level = Hard
+# Requested fighter Sub-Zero
+# Creating new fighter Sub-Zero with ai level Hard
+# Requested fighter Scorpion
+# Creating new fighter Scorpion with ai level Hard
+# Requested fighter Johnny Cage
+# Creating new fighter Johnny Cage with ai level Hard
+# Requested fighter Sub-Zero
+# Requested fighter Kitana
+# Creating new fighter Kitana with ai level Hard
+# Requested fighter Raiden
+# Creating new fighter Raiden with ai level Hard
+# Requested fighter Scorpion
+# Requested fighter Raiden
+# Requested fighter Johnny Cage
+# Requested fighter Kitana
