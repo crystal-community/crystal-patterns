@@ -58,8 +58,11 @@ class Facade
     rm = RoundManager.new
     params = RoundParams.new(DEFAULT_TIME, DEFAULT_MATCHES)
     rm.define_round(arena, params)
-    return arena
+    arena
   end
 end
 
-default_arena = Facade.create_default_arena
+Facade.create_default_arena
+# Loading arena default from disk...
+# Checking validity of round parameters...
+# Round initialized with duration 60s and 3 matches.
