@@ -34,6 +34,11 @@ The goal is to have a set of [GOF patterns](http://www.blackwasp.co.uk/gofpatter
 
 If you found any inconsistency or a place for improvement, pull requests are welcomed.
 
+## Want more?
+
+* [Crystal Design Patterns](https://github.com/bthachdev/crystal-design-patterns)
+* [Design Patterns in Ruby](https://github.com/nslocum/design-patterns-in-ruby)
+
 ## Contributors
 
 * [veelenga](https://github.com/veelenga) V. Elenhaupt - creator, maintainer
