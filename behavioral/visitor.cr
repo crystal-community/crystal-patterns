@@ -93,3 +93,14 @@ game_elements.each { |elem| elem.accept(setup_visitor) }
 3.times do
   game_elements.each { |elem| elem.accept(update_visitor) }
 end
+
+# [Setup] Visiting Arena
+# Preparing arena...
+# [Setup] Visiting Fighter
+# Fighter is ready!
+# [Update] Visiting Arena
+# [Update] Visiting Fighter
+# [Update] Visiting Arena
+# [Update] Visiting Fighter
+# [Update] Visiting Arena
+# [Update] Visiting Fighter
