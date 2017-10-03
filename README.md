@@ -12,6 +12,7 @@ The goal is to have a set of [GOF patterns](http://www.blackwasp.co.uk/gofpatter
 - Behavioral
   - [Command](behavioral/command.cr)
   - [Iterator](behavioral/iterator.cr)
+  - [Memento](behavioral/memento.cr)
   - [Observer](behavioral/observer.cr)
   - [Strategy](behavioral/strategy.cr)
   - [Template](behavioral/template.cr)

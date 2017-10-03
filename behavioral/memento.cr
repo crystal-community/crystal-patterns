@@ -53,3 +53,6 @@ match.start
 # Restore the previous state
 match.restoreMemento(previousMatchState)
 match.start
+
+# Starting fight between Sonya Blade and Goro! (5 rounds of 60.0 seconds)
+# Starting fight between Liu Kang and Kano! (3 rounds of 60.0 seconds)
