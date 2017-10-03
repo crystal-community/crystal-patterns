@@ -9,11 +9,11 @@ class Match
     @state = State.new({fighter1, fighter2}, rounds, time)
   end
 
-  def saveMemento
+  def save_memento
     @state
   end
 
-  def restoreMemento(memento : Match::State)
+  def restore_memento(memento : Match::State)
     @state = memento
   end
 
@@ -45,11 +45,11 @@ end
 
 match = Match.new("Liu Kang", "Kano", 3, 60.seconds)
 # Save the current state
-previousMatchState = match.saveMemento
+previous_match_state = match.save_memento
 # Change the state
 match.rounds = 5
 match.fighters = {"Sonya Blade", "Goro"}
 match.start
 # Restore the previous state
-match.restoreMemento(previousMatchState)
+match.restore_memento(previous_match_state)
 match.start
