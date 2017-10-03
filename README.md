@@ -15,6 +15,7 @@ The goal is to have a set of [GOF patterns](http://www.blackwasp.co.uk/gofpatter
   - [Observer](behavioral/observer.cr)
   - [Strategy](behavioral/strategy.cr)
   - [Template](behavioral/template.cr)
+  - [Visitor](behavioral/visitor.cr)
 - Creational
   - [Abstract Factory](creational/abstract_factory.cr)
   - [Builder](creational/builder.cr)
