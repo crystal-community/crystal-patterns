@@ -14,6 +14,7 @@ The goal is to have a set of [GOF patterns](http://www.blackwasp.co.uk/gofpatter
   - [Iterator](behavioral/iterator.cr)
   - [Memento](behavioral/memento.cr)
   - [Observer](behavioral/observer.cr)
+  - [State](behavioral/state.cr)
   - [Strategy](behavioral/strategy.cr)
   - [Template](behavioral/template.cr)
   - [Visitor](behavioral/visitor.cr)
