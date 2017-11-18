@@ -1,0 +1,11 @@
+name: crystal-patterns
+version: 0.1.0
+
+crystal: 0.23.1
+license: MIT
+authors:
+  - Vitalii Elenhaupt <velenhaupt@gmail.com>
+
+development_dependencies:
+  ameba:
+    github: veelenga/ameba

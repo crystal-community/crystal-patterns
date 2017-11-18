@@ -1,0 +1,4 @@
+lib/
+.shards/
+shard.lock
+bin/ameba

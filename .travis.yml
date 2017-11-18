@@ -1,2 +1,6 @@
 language: crystal
-script: ./rebuild.sh
+install:
+  - crystal deps
+script:
+  - ./rebuild.sh
+  - bin/ameba
