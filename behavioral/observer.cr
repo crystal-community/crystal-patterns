@@ -41,7 +41,7 @@ class Fighter
     notify_observers
   end
 
-  def is_dead?
+  def dead?
     @health <= 0
   end
 end
@@ -54,7 +54,7 @@ end
 
 class DieAction < Observer
   def update(fighter)
-    puts "#{fighter.name} is dead. Fight is over!" if fighter.is_dead?
+    puts "#{fighter.name} is dead. Fight is over!" if fighter.dead?
   end
 end
 

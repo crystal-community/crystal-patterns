@@ -12,10 +12,10 @@ class Fighter
 
   def attack(opponent)
     @fight_strategy.attack self, opponent
-    puts "#{opponent.name} is dead" if opponent.is_dead?
+    puts "#{opponent.name} is dead" if opponent.dead?
   end
 
-  def is_dead?
+  def dead?
     health <= 0
   end
 

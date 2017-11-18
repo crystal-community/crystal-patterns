@@ -18,10 +18,10 @@ abstract class Fighter
   def attack(fighter)
     fighter.damage(@damage_rate)
     puts "#{@name} attacks #{fighter.name} saying '#{@attack_message}'"
-    puts "#{fighter.name} is dead." if fighter.is_dead?
+    puts "#{fighter.name} is dead." if fighter.dead?
   end
 
-  def is_dead?
+  def dead?
     @health <= 0
   end
 
