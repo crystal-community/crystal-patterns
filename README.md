@@ -1,4 +1,4 @@
-<img src='https://media.githubusercontent.com/media/veelenga/bin/master/crystal-patterns/logo.png' width='100' align='right'>
+<img src='https://gitcdn.link/repo/veelenga/bin/master/crystal-patterns/logo.png' width='100' align='right'>
 
 # Crystal Patterns
 [![Build Status](https://travis-ci.org/crystal-community/crystal-patterns.svg?branch=master)](https://travis-ci.org/crystal-community/crystal-patterns)
