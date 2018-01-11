@@ -4,16 +4,21 @@
 class Game
   getter name
 
-  @@instance = new
+  # @@instance = new
 
-  def initialize
+  # Game.new be prohibited outer.
+  private def initialize
     @name = "Mortal Kombat"
   end
 
+  # lazy instantiation
   def self.instance
-    return @@instance
+    @@instance ||= new
   end
 end
 
 puts Game.instance.name
+
+# private method 'new' called for Game:Class
+# game = Game.new
 # Mortal Kombat
