@@ -8,24 +8,24 @@ class Trophy
     Bronse
   end
 
-  getter name, description, type, winner
+  property name, description, type, winner
 
   def initialize(@name : String, @description : String, @type : Type, @winner : String)
   end
 
-  def _clone(new_winner : String)
-    Trophy.new name,
-      description,
-      type,
-      new_winner
-  end
+  def_clone
 end
 
-trophy = Trophy.new "Dark Future",
+trophy_1 = Trophy.new "Dark Future",
   "Perform 50 Brutalities.",
   Trophy::Type::Gold,
   "Noob"
 
-trophy = trophy._clone "Liu Kang"
-puts trophy.winner
+trophy_2 = trophy_1.clone
+trophy_2.winner = "Liu Kang"
+
+puts trophy_1.winner
+puts trophy_2.winner
+
+# Noob
 # Liu Kang

@@ -4,16 +4,15 @@
 class Game
   getter name
 
-  @@instance = new
-
-  def initialize
+  private def initialize
     @name = "Mortal Kombat"
   end
 
   def self.instance
-    return @@instance
+    @@instance ||= new
   end
 end
 
 puts Game.instance.name
+
 # Mortal Kombat
