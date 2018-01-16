@@ -13,4 +13,6 @@ class Game
   end
 end
 
-puts Game.instance.name # => Mortal Kombat
+puts Game.instance.name
+
+# Mortal Kombat

@@ -24,5 +24,8 @@ trophy_1 = Trophy.new "Dark Future",
 trophy_2 = trophy_1.clone
 trophy_2.winner = "Liu Kang"
 
-puts trophy_1.winner # => Noob
-puts trophy_2.winner # => Liu Kang
+puts trophy_1.winner
+puts trophy_2.winner
+
+# Noob
+# Liu Kang
