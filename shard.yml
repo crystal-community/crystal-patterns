@@ -1,7 +1,7 @@
 name: crystal-patterns
 version: 0.1.0
 
-crystal: 0.24.1
+crystal: 0.24.2
 license: MIT
 authors:
   - Vitalii Elenhaupt <velenhaupt@gmail.com>
