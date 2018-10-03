@@ -1,6 +1,6 @@
 language: crystal
 install:
-  - crystal deps
+  - shards install
 script:
   - ./rebuild.sh
   - bin/ameba
