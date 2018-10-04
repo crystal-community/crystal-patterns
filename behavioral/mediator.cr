@@ -139,18 +139,52 @@ class Fighter < ColleagueBase
 end
 
 match = Match.new
+# New match created
 
 p1 = Fighter.new(match, name: "Liu Kang")
+# Player 1: Liu Kang
+
 p1.punch
+# Liu Kang punches
+# ignoring move
 
 p2 = Fighter.new(match, name: "Shang Tsung")
+# Player 2: Shang Tsung
 
 p1.kick
+# Liu Kang kicks
+# Shang Tsung is damaged for 10 (90)
+
 p2.punch
+# Shang Tsung punches
+# Liu Kang is damaged for 30 (70)
+
 p1.kick
+# Liu Kang kicks
+# Shang Tsung is damaged for 10 (80)
+
 p2.punch
+# Shang Tsung punches
+# Liu Kang is damaged for 30 (40)
+
 p1.punch
+# Liu Kang punches
+# Shang Tsung is damaged for 30 (50)
+
 p1.punch
+# Liu Kang punches
+# Shang Tsung is damaged for 30 (20)
+
 p2.kick
+# Shang Tsung kicks
+# Liu Kang is damaged for 10 (30)
+
 p1.punch
+# Liu Kang punches
+# Shang Tsung is damaged for 30 (-10)
+# Shang Tsung died
+# Liu Kang defeated Shang Tsung!
+
 p1.kick
+# Liu Kang kicks
+# ignoring move
