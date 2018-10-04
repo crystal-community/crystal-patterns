@@ -58,8 +58,6 @@ class Match < MediatorBase
         player2.as(Fighter).receive(move, fighter)
       elsif (fighter == player2)
         player1.as(Fighter).receive(move, fighter)
-      else
-        # not a player in this match
       end
     else
       puts "Ignoring move"
