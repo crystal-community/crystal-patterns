@@ -3,22 +3,22 @@
 # When a request is submitted to the chain, it is passed to the first
 # handler in the list that is able to process it.
 
-battle_plan = [
-  "Scorpion",
-  "Mileena",
-  "Baraka",
-  "Jax",
-  "Johnny Cage",
-  "Kitana",
-  "Liu Kang",
-  "Reptile",
-  "Subzero",
-  "Raiden",
-  "Kung Lao",
-  "Shang Tsung",
-  "Kintaro",
-  "Shao Khan",
-].reverse
+BATTLE_PLAN = %w(
+  Scorpion
+  Mileena
+  Baraka
+  Jax
+  Johnny Cage
+  Kitana
+  Liu\ Kang
+  Reptile
+  Subzero
+  Raiden
+  Kung\ Lao
+  Shang\ Tsung
+  Kintaro
+  Shao\ Khan
+).reverse
 
 class NoMoreOpponents < Exception; end
 
@@ -54,7 +54,7 @@ struct Player
   def fight
     puts "Fight!"
     opponent.defeat
-  rescue e : NoMoreOpponents
+  rescue NoMoreOpponents
     puts "#{name} Wins!"
     @victorious = true
   end
@@ -64,7 +64,7 @@ struct Player
   end
 end
 
-first_opponent = battle_plan.reduce(nil) do |next_fighter, this_fighter|
+first_opponent = BATTLE_PLAN.reduce(nil) do |next_fighter, this_fighter|
   Fighter.new(this_fighter, next_fighter)
 end.as(Fighter)
 
