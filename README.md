@@ -44,3 +44,4 @@ If you found any inconsistency or a place for improvement, pull requests are wel
 
 * [veelenga](https://github.com/veelenga) V. Elenhaupt - creator, maintainer
 * [silverweed](https://github.com/silverweed) Silverweed - contributor
+* [anicholson](https://github.com/anicholson) Andy Nicholson - contributor
