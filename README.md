@@ -20,6 +20,7 @@ The goal is to have a set of [GOF patterns](http://www.blackwasp.co.uk/gofpatter
   - [Visitor](behavioral/visitor.cr)
   - [Mediator](behavioral/mediator.cr)
   - [Chain of Responsibility](behavioral/chain_of_responsibility.cr)
+  - [Interpreter](behavioral/interpreter.cr)
 - Creational
   - [Abstract Factory](creational/abstract_factory.cr)
   - [Builder](creational/builder.cr)
