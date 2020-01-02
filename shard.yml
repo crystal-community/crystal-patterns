@@ -8,4 +8,4 @@ authors:
 
 development_dependencies:
   ameba:
-    github: veelenga/ameba
+    github: crystal-ameba/ameba
