@@ -60,7 +60,7 @@ abstract class Evaluator
 end
 
 class TerminalExpression < Evaluator
-  def evaluate(_press)
+  def evaluate(press)
     if special_move
       context.moves << special_move.as(Move)
     else

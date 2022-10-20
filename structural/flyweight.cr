@@ -23,8 +23,7 @@ class Tree < FlyweightTree
     @pos = {0, 0}
   end
 
-  def draw_at(_pos : Position)
-    pos = _pos
+  def draw_at(pos : Position)
     puts "Drawing #{@species} at #{pos}"
   end
 end
