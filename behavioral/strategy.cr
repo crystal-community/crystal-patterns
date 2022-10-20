@@ -35,19 +35,19 @@ abstract class FightStrategy
 end
 
 class Puncher < FightStrategy
-  def attack(ft, op)
-    puts "#{ft.name} attacks #{op.name} with 1 punch."
-    op.damage(HITS[:punch])
+  def attack(fighter, opponent)
+    puts "#{fighter.name} attacks #{opponent.name} with 1 punch."
+    opponent.damage(HITS[:punch])
   end
 end
 
 class Combo < FightStrategy
-  def attack(ft, op)
-    puts "#{ft.name} attacks #{op.name} with 2 kicks and 1 punch."
+  def attack(fighter, opponent)
+    puts "#{fighter.name} attacks #{opponent.name} with 2 kicks and 1 punch."
 
-    op.damage(HITS[:kick])
-    op.damage(HITS[:kick])
-    op.damage(HITS[:punch])
+    opponent.damage(HITS[:kick])
+    opponent.damage(HITS[:kick])
+    opponent.damage(HITS[:punch])
   end
 end
 

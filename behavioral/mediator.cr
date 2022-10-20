@@ -52,12 +52,12 @@ class Match < MediatorBase
     end
   end
 
-  def perform_move(move, fighter)
-    if can_perform_move?(move, fighter)
-      if (fighter == player1)
-        player2.as(Fighter).receive(move, fighter)
-      elsif (fighter == player2)
-        player1.as(Fighter).receive(move, fighter)
+  def perform_move(move, performer)
+    if can_perform_move?(move, performer)
+      if (performer == player1)
+        player2.as(Fighter).receive(move, performer)
+      elsif (performer == player2)
+        player1.as(Fighter).receive(move, performer)
       end
     else
       puts "Ignoring move"
