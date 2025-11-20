@@ -1,5 +1,3 @@
-<img src='https://gitcdn.link/repo/veelenga/bin/master/crystal-patterns/logo.png' width='100' align='right'>
-
 # Crystal Patterns
 
 Design patterns implemented in Crystal language.
